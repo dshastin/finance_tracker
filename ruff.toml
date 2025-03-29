@@ -1,0 +1,32 @@
+line-length = 120
+
+target-version = "py312"
+
+[lint]
+select = ["ALL"]
+ignore = [
+    "D100", # missing doc-string in public module
+    "EM102", # f-string in exception
+    "G004", # f-string in logging
+    "TD002", # missing author in TODO
+    "TD003", # missing issue link for this TODO
+]
+
+exclude = [
+    '*/alembic/versions/*',
+]
+
+[lint.per-file-ignores]
+
+[lint.flake8-quotes]
+inline-quotes = "single"
+docstring-quotes = "double"
+
+[lint.flake8-annotations]
+suppress-dummy-args = true
+
+[lint.isort]
+combine-as-imports = true
+
+[format]
+quote-style = "single"
