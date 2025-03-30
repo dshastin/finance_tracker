@@ -6,6 +6,7 @@ target-version = "py312"
 select = ["ALL"]
 ignore = [
     "D100", # missing doc-string in public module
+    "D104", # missing docstring in public package
     "EM102", # f-string in exception
     "G004", # f-string in logging
     "TD002", # missing author in TODO

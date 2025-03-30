@@ -6,6 +6,7 @@ repos:
         args: ["--config-file=mypy.ini"]
         additional_dependencies: [
           'pydantic',
+          'pydantic-settings',
           'litestar',
         ]
 
