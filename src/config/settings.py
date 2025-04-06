@@ -1,23 +1,28 @@
 from pathlib import Path
+from typing import Any
 
 from litestar.plugins.sqlalchemy import SQLAlchemyAsyncConfig
 from pydantic_settings import BaseSettings
 
-from db.base import Base
-
-BASE_DIR = Path(__file__).parent.parent
 
 class Settings(BaseSettings):
-    """APP Settings."""
-
+    """Application settings."""
+    
+    # Database settings
+    DATABASE_URL: str = "sqlite+aiosqlite:///./app.db"
+    
     @property
     def db_config(self) -> SQLAlchemyAsyncConfig:
-        """DB Connection parameters."""
+        """Get database configuration."""
         return SQLAlchemyAsyncConfig(
-            connection_string='sqlite+aiosqlite:///db.sqlite',
+            connection_string=self.DATABASE_URL,
             create_all=True,
-            metadata=Base.metadata,
-)
+        )
+    
+    class Config:
+        """Pydantic config."""
+        env_file = ".env"
+        case_sensitive = True
 
 
 settings = Settings()

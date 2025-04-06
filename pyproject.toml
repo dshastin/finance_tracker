@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12.9"
 dependencies = [
     "aiosqlite>=0.21.0",
+    "alembic>=1.15.2",
     "litestar[sqlalchemy,standard]>=2.15.1",
     "pydantic>=2.11.1",
     "pydantic-settings>=2.8.1",
